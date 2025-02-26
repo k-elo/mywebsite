@@ -24,12 +24,16 @@
             background-color: #444;
             padding: 10px;
             text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         nav a {
             color: white;
             text-decoration: none;
             padding: 10px 15px;
             display: inline-block;
+            font-size: 16px;
         }
         main {
             padding: 20px;
@@ -78,34 +82,23 @@
         .confetti-cannon {
             position: absolute;
             bottom: 10px;
-            width: 40px;
-            height: 80px;
+            width: 50px;
+            height: 90px;
         }
         .left-cannon {
-            left: 15%;
+            left: 10%;
         }
         .right-cannon {
-            right: 15%;
+            right: 10%;
         }
         @media (max-width: 768px) {
-            nav {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
             nav a {
                 padding: 8px;
                 font-size: 14px;
             }
             .confetti-cannon {
-                width: 30px;
-                height: 60px;
-            }
-            .left-cannon {
-                left: 10%;
-            }
-            .right-cannon {
-                right: 10%;
+                width: 40px;
+                height: 70px;
             }
         }
     </style>
@@ -145,13 +138,13 @@
                 if (timeLeft <= 0) {
                     return;
                 }
-                const particleCount = 150 * (timeLeft / duration);
+                const particleCount = 200 * (timeLeft / duration);
                 confetti({
                     particleCount,
-                    spread: 300,
-                    startVelocity: 80,
+                    spread: 360,
+                    startVelocity: 100,
                     colors,
-                    origin: { x: Math.random(), y: Math.random() * 0.5 }
+                    origin: { x: Math.random(), y: Math.random() * 0.6 }
                 });
                 requestAnimationFrame(frame);
             }
