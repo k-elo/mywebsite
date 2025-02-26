@@ -35,16 +35,16 @@
             padding: 20px;
             max-width: 800px;
             margin: 0 auto;
-            text-align: center;
+            text-align: center; 
             font-size: 14px;
             background: #f2f2ff;
             color: #FFA07A;
         }
         main h1 {
-            font-size: 24px;
+            font-size: 20px;
         }
         main p {
-            font-size: 18px;
+            font-size: 20px;
         }
         button {
             background-color: #FFA07A;
@@ -64,8 +64,8 @@
             color: #FFA07A;
             text-align: center;
             padding: 10px;
-            width: 100%;
             position: relative;
+            width: 100%;
         }
         canvas {
             position: fixed;
@@ -76,43 +76,44 @@
             pointer-events: none;
         }
         .confetti-cannon {
-            position: fixed;
-            bottom: 50px;
-            width: 50px;
-            height: 100px;
+            position: absolute;
+            bottom: 10px;
+            width: 40px;
+            height: 80px;
         }
         .left-cannon {
-            left: 10%;
+            left: 15%;
         }
         .right-cannon {
-            right: 10%;
+            right: 15%;
         }
         @media (max-width: 768px) {
-            main {
-                padding: 10px;
-                font-size: 16px;
+            nav {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
-            main h1 {
-                font-size: 20px;
-            }
-            main p {
-                font-size: 16px;
-            }
-            button {
+            nav a {
+                padding: 8px;
                 font-size: 14px;
-                padding: 8px 16px;
             }
             .confetti-cannon {
-                width: 40px;
-                height: 80px;
+                width: 30px;
+                height: 60px;
+            }
+            .left-cannon {
+                left: 10%;
+            }
+            .right-cannon {
+                right: 10%;
             }
         }
     </style>
 </head>
 <body>
     <canvas id="confetti-canvas"></canvas>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Party_Popper_Emoji.svg/512px-Party_Popper_Emoji.svg.png" class="confetti-cannon left-cannon">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Party_Popper_Emoji.svg/512px-Party_Popper_Emoji.svg.png" class="confetti-cannon right-cannon">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Party_Popper_Emoji.svg" class="confetti-cannon left-cannon">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Party_Popper_Emoji.svg" class="confetti-cannon right-cannon">
     <header>
         ქეთევან ელოშვილი
     </header>
@@ -136,29 +137,21 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2"></script>
     <script>
         function celebrate() {
-            const duration = 5 * 1000;
+            const duration = 3 * 1000;
             const animationEnd = Date.now() + duration;
             const colors = ['#ff0000', '#ffff00', '#00ff00', '#0000ff', '#ff00ff', '#ff8800'];
-            
             function frame() {
                 const timeLeft = animationEnd - Date.now();
                 if (timeLeft <= 0) {
                     return;
                 }
-                const particleCount = 100 * (timeLeft / duration);
+                const particleCount = 150 * (timeLeft / duration);
                 confetti({
                     particleCount,
-                    spread: 250,
-                    startVelocity: 60,
+                    spread: 300,
+                    startVelocity: 80,
                     colors,
-                    origin: { x: 0.1, y: 1 }
-                });
-                confetti({
-                    particleCount,
-                    spread: 250,
-                    startVelocity: 60,
-                    colors,
-                    origin: { x: 0.9, y: 1 }
+                    origin: { x: Math.random(), y: Math.random() * 0.5 }
                 });
                 requestAnimationFrame(frame);
             }
@@ -167,4 +160,3 @@
     </script>
 </body>
 </html>
- 
