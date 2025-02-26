@@ -11,6 +11,7 @@
             padding: 30px;
             background-color: #f2f2ff;
             text-align: center;
+            overflow: hidden;
         }
         header {
             background-color: #f2f2ff;
@@ -75,10 +76,24 @@
             height: 100%;
             pointer-events: none;
         }
+        .confetti-cannon {
+            position: fixed;
+            bottom: 50px;
+            width: 50px;
+            height: 100px;
+        }
+        .left-cannon {
+            left: 20%;
+        }
+        .right-cannon {
+            right: 20%;
+        }
     </style>
 </head>
 <body>
     <canvas id="confetti-canvas"></canvas>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Party_Popper_Emoji.svg/512px-Party_Popper_Emoji.svg.png" class="confetti-cannon left-cannon">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Party_Popper_Emoji.svg/512px-Party_Popper_Emoji.svg.png" class="confetti-cannon right-cannon">
     <header>
         ქეთევან ელოშვილი
     </header>
@@ -104,20 +119,27 @@
         function celebrate() {
             const duration = 5 * 1000;
             const animationEnd = Date.now() + duration;
-            const colors = ['#bb0000', '#ffffff', '#FFA500', '#0000FF', '#008000'];
+            const colors = ['#ff0000', '#ffff00', '#00ff00', '#0000ff', '#ff00ff', '#ff8800'];
             
             function frame() {
                 const timeLeft = animationEnd - Date.now();
                 if (timeLeft <= 0) {
                     return;
                 }
-                const particleCount = 50 * (timeLeft / duration);
+                const particleCount = 100 * (timeLeft / duration);
                 confetti({
                     particleCount,
-                    spread: 180,
-                    startVelocity: 40,
+                    spread: 250,
+                    startVelocity: 60,
                     colors,
-                    origin: { x: Math.random(), y: Math.random() - 0.2 }
+                    origin: { x: 0.2, y: 1 }
+                });
+                confetti({
+                    particleCount,
+                    spread: 250,
+                    startVelocity: 60,
+                    colors,
+                    origin: { x: 0.8, y: 1 }
                 });
                 requestAnimationFrame(frame);
             }
