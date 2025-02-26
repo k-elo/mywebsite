@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ქეთევან ელოშვილი</title>
+    <style>
+        body {
+            font-family: Calibri, sans-serif;
+            margin: 30px;
+            padding: 30px;
+            background-color: #f2f2ff;
+        }
+        header {
+            background-color: #f2f2ff;
+            color: #FFA07A;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: inline-block;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center; 
+            font-size: 14px;
+            background: #f2f2ff;
+            color: #FFA07A;
+        }
+        main h1 {
+            font-size: 20px;
+        }
+        main p {
+            font-size: 20px;
+        }
+        button {
+            background-color: #FFA07A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #FF6347;
+        }
+        footer {
+            background-color: #f2f2ff;
+            color: #FFA07A;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        ქეთევან ელოშვილი
+    </header>
+    <nav>
+        <a href="index.html">მთავარი</a>
+        <a href="about.html">ჩემს შესახებ</a>
+        <a href="services.html">ჩემი სერვისები</a>
+        <a href="portfolio.html">პორტფოლიო</a>
+        <a href="blog.html">ბლოგი</a>
+        <a href="contact.html">კონტაქტი</a>
+    </nav>
+    <main>
+        <h1> მე ქეთევანი ვარ და სიხარულით მოგესალმები ჩემს საიტზე! <br> 😊❤️ </h1>
+        <p> <br> <br> <br> მე კოდირებას ვსწავლობ და ეს ჩემი პირველი გვერდია <br> <br> მისურვე წარმატება 😊 <br> </p>
+        <button onclick="celebrate()">წარმატებას გისურვებ</button>
+    </main>
+
+    <canvas id="my-canvas"></canvas>
+
+    <footer>
+        &copy; 2025 My Webpage. All rights reserved.
+    </footer>
+
+    <!-- ✅ SCRIPT-ები სწორ ადგილას არის -->
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js"></script>
+    <script>
+        function celebrate() {
+            const confettiSettings = { target: 'my-canvas' };
+            const confetti = new ConfettiGenerator(confettiSettings);
+            confetti.render();
+
+            // 3 წამში შეწყვიტოს გაფრქვევა
+            setTimeout(() => confetti.clear(), 3000);
+        }
+    </script>
+
+</body>
+</html>
