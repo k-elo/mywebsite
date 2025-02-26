@@ -12,18 +12,16 @@
             background-color: #f2f2ff;
             text-align: center;
             overflow: hidden;
+            color: #FFA07A;
         }
         header {
             background-color: #f2f2ff;
-            color: #FFA07A;
             padding: 20px;
-            text-align: center;
             font-size: 24px;
         }
         nav {
             background-color: #444;
             padding: 10px;
-            text-align: center;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -32,22 +30,12 @@
             color: white;
             text-decoration: none;
             padding: 10px 15px;
-            display: inline-block;
             font-size: 16px;
         }
         main {
             padding: 20px;
             max-width: 800px;
             margin: 0 auto;
-            text-align: center; 
-            font-size: 14px;
-            background: #f2f2ff;
-            color: #FFA07A;
-        }
-        main h1 {
-            font-size: 20px;
-        }
-        main p {
             font-size: 20px;
         }
         button {
@@ -65,7 +53,6 @@
         }
         footer {
             background-color: #f2f2ff;
-            color: #FFA07A;
             text-align: center;
             padding: 10px;
             position: relative;
@@ -97,8 +84,8 @@
                 font-size: 14px;
             }
             .confetti-cannon {
-                width: 40px;
-                height: 70px;
+                width: 30px;
+                height: 50px;
             }
         }
     </style>
@@ -120,8 +107,7 @@
     </nav>
     <main>
         <h1>მე ქეთევანი ვარ და სიხარულით მოგესალმები ჩემს საიტზე! <br> 😊❤️ </h1>
-        <p> <br> <br> <br> მე კოდირებას ვსწავლობ და ეს ჩემი პირველი გვერდია 
-            <br> <br> მისურვე წარმატება 😊 <br> </p>
+        <p>მე კოდირებას ვსწავლობ და ეს ჩემი პირველი გვერდია. მისურვე წარმატება 😊</p>
         <button onclick="celebrate()">წარმატებას გისურვებ</button>
     </main>
     <footer>
@@ -132,18 +118,19 @@
         function celebrate() {
             const duration = 3 * 1000;
             const animationEnd = Date.now() + duration;
-            const colors = ['#ff0000', '#ffff00', '#00ff00', '#0000ff', '#ff00ff', '#ff8800'];
+            const colors = ['#FF0000', '#FFFF00', '#00FF00', '#0000FF', '#FF00FF', '#FF8800'];
             function frame() {
                 const timeLeft = animationEnd - Date.now();
                 if (timeLeft <= 0) {
                     return;
                 }
-                const particleCount = 200 * (timeLeft / duration);
+                const particleCount = 300 * (timeLeft / duration);
                 confetti({
                     particleCount,
                     spread: 360,
                     startVelocity: 100,
                     colors,
+                    scalar: 1.5,
                     origin: { x: Math.random(), y: Math.random() * 0.6 }
                 });
                 requestAnimationFrame(frame);
